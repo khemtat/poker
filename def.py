@@ -5,3 +5,4 @@ print gg(input())
 
 print 'YEAH'
 print 'PAme'
+print 'Yok kak kak'
