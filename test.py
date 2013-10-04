@@ -1,1 +1,1 @@
-'yok kak'
+print 'yok kak'
