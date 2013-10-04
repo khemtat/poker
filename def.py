@@ -4,3 +4,4 @@ def gg(n):
 print gg(input())
 
 print 'YEAH'
+print 'PAme'
