@@ -30,6 +30,18 @@ def three_of_a_kind(hand):
                         status = 1
                         break
         return bool(status)
+def straight(hand):
+        """
+        (hand) --> bool
+
+        return check this hand is straight
+        """
+        tocheck_straight = ['--23456789TJQKA'.index(n) for n,h in hand]
+        tocheck_straight.sort()
+        tocheck_straight.reverse()
+        if tocheck_straight == [14,5,4,3,2]:
+                tocheck_straight = [5,4,3,2,1]
+        return (max(tocheck_straight)-min(tocheck_straight) == 4) and (len(set(tocheck_straight)) == 5)
         
 if __name__ == '__main__':
 	import doctest
