@@ -5,7 +5,7 @@ class TestPoker(unittest.TestCase):
     def test_poker_example_1(self):
         '''Test check_rank poker with .'''
         actual = poker.play_poker(1)
-        expected = [[1]]
+        expected = [1]
         self.assertEqual(actual, expected)
      
 if __name__ == '__main__':
