@@ -32,7 +32,16 @@ class TestPoker(unittest.TestCase):
         actual = poker.three_of_a_kind(['6D', '7C', '9C', '8C', '7C'])
         expected = False
         self.assertEqual(actual, expected)
-
+    def test_poker_straight_1(self):
+        '''Test Case straight 1 '''
+        actual = poker.straight(['6H', 'TC', '9D', '8C', '7C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_straight_2(self):
+        '''Test Case straight 2 '''
+        actual = poker.straight(['6H', 'TC', '9D', '8C', '2C'])
+        expected = False
+        self.assertEqual(actual, expected)
      
 if __name__ == '__main__':
     unittest.main(exit=False)
