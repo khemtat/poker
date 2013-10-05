@@ -17,6 +17,22 @@ class TestPoker(unittest.TestCase):
         actual = poker.flush(['JD', 'TC', '9C', '8C', '7C'])
         expected = False
         self.assertEqual(actual, expected)
+    def test_poker_three_of_a_kind_1(self):
+        '''Test Case poker_three_of_a_kind 1 '''
+        actual = poker.three_of_a_kind(['7D', '7C', '9C', '8C', '7C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_three_of_a_kind_2(self):
+        '''Test Case poker_three_of_a_kind 2 '''
+        actual = poker.three_of_a_kind(['7D', '7C', '7C', '7C', '7C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_three_of_a_kind_3(self):
+        '''Test Case poker_three_of_a_kind 3 '''
+        actual = poker.three_of_a_kind(['6D', '7C', '9C', '8C', '7C'])
+        expected = False
+        self.assertEqual(actual, expected)
+
      
 if __name__ == '__main__':
     unittest.main(exit=False)
