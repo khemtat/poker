@@ -102,6 +102,15 @@ def two_pair(hand):
                 return True
         else:
                 return False
+def high_card(hand):
+        """
+        (hand) -> int
+
+        return The maximum number of cards.
+        """
+        s=[]
+        s.append('--23456789TJQKA'.index(n) for n,h in hand)
+        return max(s)
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
