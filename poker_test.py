@@ -8,6 +8,7 @@ class TestPoker(unittest.TestCase):
 #        expected = [['1']]
 #        self.assertEqual(actual, expected)
 
+    ### Test case royal straight flush ###
     def test_poker_royal_straight_flush(self):
         '''Test Case for checking royal straight flush'''
         actual = poker.royal_straight_flush(['AD','KD','QD','JD','TD'])
@@ -24,6 +25,7 @@ class TestPoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
+    ### Test case straight flush ###
     def test_poker_straight_flush(self):
         '''Test case for checking straight flush'''
         actual = poker.straight_flush(['AC','2C','3C','4C','5C'])
@@ -35,6 +37,7 @@ class TestPoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
+    #### Test case four of a kind ###
     def test_poker_four_of_a_kind(self):
         '''Test case for checking four of a kind'''
         actual = poker.four_of_a_kind(['5D','5D','5D','5D','6D'])
@@ -49,8 +52,9 @@ class TestPoker(unittest.TestCase):
         '''Test case for checking four of a kind'''
         actual = poker.four_of_a_kind(['3C','3D','3C','4C','5D'])
         expected = False
-        self.assertEqual(actual, expected)              
+        self.assertEqual(actual, expected)  
 
+    ### Test case straight ###
     def test_poker_straight_1(self):
         '''Test Case straight 1 '''
         actual = poker.straight(['6H', 'TC', '9D', '8C', '7C'])
@@ -77,6 +81,7 @@ class TestPoker(unittest.TestCase):
         expected = True
         self.assertEqual(actual, expected) 
 
+    ### Test case flush ###
     def test_poker_flush_1(self):
         '''Test Case Flush 1 '''
         actual = poker.flush(['JC', 'TC', '9C', '8C', '7C'])
@@ -88,6 +93,7 @@ class TestPoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
+    ### Test case three of a kind ###
     def test_poker_three_of_a_kind_1(self):
         '''Test Case poker_three_of_a_kind 1 '''
         actual = poker.three_of_a_kind(['7D', '7C', '9C', '8C', '7C'])
