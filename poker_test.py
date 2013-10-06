@@ -110,6 +110,23 @@ class TestPoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
+    ### Test case one pair ###
+    def test_poker_one_pair(self):
+        '''Test Case for checking one pair'''
+        actual = poker.one_pair(['7D', '7C', '4C', '3C', '2C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_one_pair2(self):
+        '''Test Case for checking one pair'''
+        actual = poker.one_pair(['KD', 'KC', '4C', '2C', '5C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_one_pair3(self):
+        '''Test Case for checking one pair'''
+        actual = poker.one_pair(['KD', 'KC', '7C', '7C', '5C'])
+        expected = False
+        self.assertEqual(actual, expected)
+
      
 if __name__ == '__main__':
     unittest.main(exit=False)
