@@ -2,10 +2,15 @@ import unittest
 import poker
 class TestPoker(unittest.TestCase):
     '''Example unittest test methods for check_rank'''
-    def test_poker_example_1(self):
-        '''Test check_rank poker with .'''
-        actual = poker.play_poker(1)
-        expected = [['1']]
+#    def test_poker_example_1(self):
+#        '''Test check_rank poker with .'''
+#        actual = poker.play_poker(1)
+#        expected = [['1']]
+#        self.assertEqual(actual, expected)
+    def test_poker_royal_straight_flush(self):
+        '''Test Case for checking royal straight flush'''
+        actual = poker.royal_straight_flush(['AD','KD','QD','JD','TD'])
+        expected = True
         self.assertEqual(actual, expected)
     def test_poker_flush_1(self):
         '''Test Case Flush 1 '''
