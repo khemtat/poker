@@ -1,7 +1,7 @@
 import unittest
 import poker
 class TestPoker(unittest.TestCase):
-    '''Example unittest test methods for check_rank'''
+    '''unittest test methods for check_rank'''
 #    def test_poker_example_1(self):
 #        '''Test check_rank poker with .'''
 #        actual = poker.play_poker(1)
@@ -24,22 +24,17 @@ class TestPoker(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_poker_straight_flush1(self):
+    def test_poker_straight_flush(self):
         '''Test case for checking straight'''
-        actual = poker.straight(['JC','KD','QD','AC','TD'])
+        actual = poker.straight(['AC','2C','3C','4C','5C'])
         expected = True
         self.assertEqual(actual, expected)
     def test_poker_straight_flush2(self):
         '''Test case for checking straight'''
-        actual = poker.straight(['JC','KD','QD','AC','TD'])
-        expected = True
+        actual = poker.straight(['2D','3D','4C','5C','6D'])
+        expected = False
         self.assertEqual(actual, expected)
-    def test_poker_straight_flush3(self):
-        '''Test case for checking straight'''
-        actual = poker.straight(['JC','KD','QD','AC','TD'])
-        expected = True
-        self.assertEqual(actual, expected)
-        
+
     def test_poker_straight_1(self):
         '''Test Case straight 1 '''
         actual = poker.straight(['6H', 'TC', '9D', '8C', '7C'])
