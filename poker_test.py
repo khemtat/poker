@@ -12,8 +12,16 @@ class TestPoker(unittest.TestCase):
         actual = poker.royal_straight_flush(['AD','KD','QD','JD','TD'])
         expected = True
         self.assertEqual(actual, expected)
-    def something():
-        pass
+    def test_poker_royal_straight_flush2(self):
+        '''Test Case for checking royal straight flush'''
+        actual = poker.royal_straight_flush(['KC','AC','JC','TC','QC'])
+        expected = True
+        self.assertEqual(actual, expected)
+    def test_poker_royal_straight_flush3(self):
+        '''Test Case for checking royal straight flush'''
+        actual = poker.royal_straight_flush(['KC','AD','JD','TC','QD'])
+        expected = False
+        self.assertEqual(actual, expected)
     def test_poker_flush_1(self):
         '''Test Case Flush 1 '''
         actual = poker.flush(['JC', 'TC', '9C', '8C', '7C'])
