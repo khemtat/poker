@@ -30,6 +30,17 @@ def straight_flush(hand):
         """
         return straight(hand) and flush(hand)
 
+def four_of_a_kind(hand):
+        """
+        (hand) -> bool
+
+        Checking hand is four of a kind
+
+        return True or False
+        """
+        s = [s1 for s1,s2 in hand]
+        return len(set(s)) == 2
+
 
 
 def straight(hand):
