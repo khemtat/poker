@@ -148,7 +148,17 @@ class TestPoker(unittest.TestCase):
         actual = poker.high_card(['KD', '6C', '8C', '8C', '7C'])
         expected = '13'
         self.assertEqual(actual, expected)
-  
+    ### Test case full house ###    
+    def test_poker_full_house1(self):
+        '''Test case for checking full house'''
+        actual = poker.full_house(['4D', '4C', '8C', '8C', '4C'])
+        expected = True
+        self.assertEqual(actual, expected)
+    #def test_poker_full_house2(self):
+     #   '''Test case for checking full house'''
+      #  actual = poker.full_house(['2D', '2C', '3C', '4C', '5C'])
+      #  expected = False
+     #   self.assertEqual(actual, expected)
 
      
 if __name__ == '__main__':
