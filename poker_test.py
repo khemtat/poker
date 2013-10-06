@@ -29,7 +29,7 @@ class TestPoker(unittest.TestCase):
         self.assertEqual(actual, expected)
     def test_poker_straight2(self):
         '''Test case for checking straight flush'''
-        actual = poker.straight(['2C','3D','4D','5C','AD'])
+        actual = poker.straight(['3C','2D','5D','AC','4D'])
         expected = True
         self.assertEqual(actual, expected)
 #    def test_poker_straight3(self):
