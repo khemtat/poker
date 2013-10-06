@@ -3,9 +3,27 @@ def play_poker(n):
 	for i in xrange(n):
 		card_list.append([raw_input("[+] Player "+str(i+1)+" input your card: ")])
 	return card_list
+
+def royal_straight_flush(hand):
+        """
+        (hand) -> bool
+
+        Checking hand is royal straight flush
+
+        return True or False
+        """
+        s1, s2 = [s1 for s1,s2 in hand],[s2 for s1,s2 in hand]
+        for each in s1:
+                if each not in ['A','K','Q','J','T']:
+                        return False
+        if len(set(s2)) != 1:
+                return False
+        return True
+
+
 def flush(hand):
         """
-        (hand) --> bool
+        (hand) -> bool
 
         return check this hand is flush
         """
@@ -18,7 +36,7 @@ def flush(hand):
         return bool(status)
 def three_of_a_kind(hand):
         """
-        (hand) --> bool
+        (hand) -> bool
 
         return check this hand is three of a kind
         """
@@ -32,7 +50,7 @@ def three_of_a_kind(hand):
         return bool(status)
 def straight(hand):
         """
-        (hand) --> bool
+        (hand) -> bool
 
         return check this hand is straight
         """
