@@ -91,7 +91,17 @@ def one_pair(hand):
         """
         s = [s1 for s1,s2 in hand]
         return len(set(s)) == 4
+def two_pair(hand):
+        """
+        (hand) -> bool
 
+        return check this hand is two pair
+        """
+        s = [n for n,h in hand]
+        if not three_of_a_kind(hand)and len(set(s))== 3:
+                return True
+        else:
+                return False
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
