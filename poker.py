@@ -111,6 +111,17 @@ def high_card(hand):
         s=[]
         s.append('--23456789TJQKA'.index(n) for n,h in hand)
         return max(s)
+def full_house(hand):
+        """
+        (hand) -> bool
+
+        Checking hand is full house
+
+        return True or False
+        """
+        s = [n for n,h in hand]
+        if three_of_a_kind(hand)and len(set(s))==2:
+                return True
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
