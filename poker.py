@@ -12,13 +12,27 @@ def royal_straight_flush(hand):
 
         return True or False
         """
-        s1, s2 = [s1 for s1,s2 in hand],[s2 for s1,s2 in hand]
+        s1 = [s1 for s1,s2 in hand]
         for each in s1:
                 if each not in ['A','K','Q','J','T']:
                         return False
         if flush(hand):
                 return True
         return False
+
+def straight(hand):
+        """
+        (hand) -> bool
+
+        checking hand is straight
+
+        return True or False
+        """
+        s = ['--23456789TJQKA'.index(s1) for s1,s2 in hand]
+        s.sort()
+        if s == [2, 3, 4, 5, 14]:
+                s = [1, 2, 3, 4, 5]
+        return max(s)-min(s) == 4 and len(set(s)) == 5
 
 
 def flush(hand):
