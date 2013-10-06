@@ -41,8 +41,6 @@ def four_of_a_kind(hand):
         s = [s1 for s1,s2 in hand]
         return len(set(s)) == 2
 
-
-
 def straight(hand):
         """
         (hand) -> bool
@@ -82,6 +80,17 @@ def three_of_a_kind(hand):
                         status = 1
                         break
         return bool(status)
+
+def one_pair(hand):
+        """
+        (hand) -> bool
+
+        Checking hand is one one pair
+
+        return True or False
+        """
+        s = [s1 for s1,s2 in hand]
+        return len(set(s)) == 4
 
 if __name__ == '__main__':
 	import doctest
