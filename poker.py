@@ -16,9 +16,9 @@ def royal_straight_flush(hand):
         for each in s1:
                 if each not in ['A','K','Q','J','T']:
                         return False
-        if len(set(s2)) != 1:
-                return False
-        return True
+        if flush(hand):
+                return True
+        return False
 
 
 def flush(hand):
@@ -28,12 +28,9 @@ def flush(hand):
         return check this hand is flush
         """
         s = [h for n,h in hand]
-        status = 1
-        for i in xrange(len(s)):
-                if s[0] != s[i]:
-                        status = 0
-                        break
-        return bool(status)
+        if len(set(s)) != 1:
+                return False
+        return True
 def three_of_a_kind(hand):
         """
         (hand) -> bool
