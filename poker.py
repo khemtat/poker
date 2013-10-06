@@ -20,6 +20,18 @@ def royal_straight_flush(hand):
                 return True
         return royal_straight(hand) and flush(hand)
 
+def straight_flush(hand):
+        """
+        (hand) -> bool
+
+        Checking hand is straight flush
+
+        return True or False
+        """
+        return straight(hand) and flush(hand)
+
+
+
 def straight(hand):
         """
         (hand) -> bool
