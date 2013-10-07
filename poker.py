@@ -4,6 +4,79 @@ def play_poker(n):
 		card_list.append([raw_input("[+] Player "+str(i+1)+" input your card: ")])
 	return card_list
 
+def check_hand_rank(hand):
+        """
+        (hand) -> list
+
+        This function use to check hand rank
+
+        return list of hand rank
+        ======
+        Royal straight flush = 9
+        Straight flush = 8
+        Four of a kind = 7
+        Full house = 6
+        Flush = 5
+        Straight = 4
+        Three of a kind = 3
+        Two pair = 2
+        One pair = 1
+        High card = 0
+        """
+        card_rank = ['--23456789TJQKA'.index(n) for n,h in hand]
+        card_rank.sort()
+        card_rank.reverse()
+        if card_rank == [14,5,4,3,2]:
+                card_rank = [5,4,3,2,1]
+        if royal_straight_flush(hand):
+                return 9,max(card_rank)
+        elif straight_flush(hand):
+                return 8,max(card_rank)
+        elif four_of_a_kind(hand):
+                return 7,max(card_rank)
+        elif full_house(hand):
+                tong = 0
+                kuu = 0
+                s = [n for n,h in hand]
+                for i in xrange(len(s)):
+                        if(s.count(s[i])==3):
+                           tong = s[i]
+                        else:
+                           kuu = s[i]
+                return 6,tong,kuu
+        elif flush(hand):
+                return 5,max(card_rank)
+        elif straight(hand):
+                return 4,max(card_rank)
+        elif three_of_a_kind(hand):
+                return 3,max(card_rank),max(kicker_sort(3,card_rank))
+        elif two_pair(hand):
+                Max2 = kicker_sort(2,card_rank)
+                kicker = kicker_sort(2,Max2)
+                return 2,max(card_rank),max(Max2),max(kicker)
+        elif one_pair(hand):
+                return 1,max(card_rank),max(kicker_sort(2,card_rank))
+        else:
+                return 0,max(card_rank)
+def kicker_sort(a,ls):
+        """
+        (a,ls) -> list
+
+        if draw in case "Three of a kind" , "Two Pair" and "One Pair" can use
+        this function to find Kicker number
+
+        return list of kicker
+        """
+        b = 0
+        for i in xrange(len(ls)):
+                if(ls.count(ls[i]) == a ):
+                        b=ls[i]
+                        break
+        for i in xrange(ls.count(b)):
+                ls.remove(b)
+        ls.sort(reverse=True)
+        return ls
+                        
 def royal_straight_flush(hand):
         """
         (hand) -> bool
@@ -39,6 +112,7 @@ def four_of_a_kind(hand):
         return True or False
         """
         s = [s1 for s1,s2 in hand]
+        
         return len(set(s)) == 2
 
 def straight(hand):
