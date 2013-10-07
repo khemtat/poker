@@ -182,9 +182,12 @@ def high_card(hand):
 
         return The maximum number of cards.
         """
-        s=[]
-        s.append('--23456789TJQKA'.index(n) for n,h in hand)
-        return max(s)
+        card_rank = ['--23456789TJQKA'.index(n) for n,h in hand]
+        card_rank.sort()
+        card_rank.reverse()
+        if card_rank == [14,5,4,3,2]:
+                card_rank = [5,4,3,2,1]
+        return max(card_rank)
 def full_house(hand):
         """
         (hand) -> bool
