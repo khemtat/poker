@@ -159,8 +159,61 @@ class TestPoker(unittest.TestCase):
         actual = poker.full_house(['2D', '2C', '3C', '4C', '5C'])
         expected = False
         self.assertEqual(actual, expected)
-
-     
+    ### Test case of Check_hand_rank 
+    def test_poker_check_hand_rank(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['2C', '2C', '4C', '3C', '3C'])
+        expected = (5,4)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank2(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['5C', '7D', 'KD', '4C', '2C'])
+        expected = (0,13)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank3(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['7C', '7D', '7D', '4C', '2C'])
+        expected = (3,7,4)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank4(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['3C', '5D', '6D', '4C', '2C'])
+        expected = (4,6)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank5(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['3C', '3D', '3D', '2C', '2C'])
+        expected = (7,3)
+    def test_poker_check_hand_rank6(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['3C', '5C', '6C', '4C', '2C'])
+        expected = (8,6)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank7(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['AC', 'KC', 'QC', 'JC', 'TC'])
+        expected = (9,14)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank8(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['AC', 'AD', 'QC', 'JC', 'TD'])
+        expected = (1,14,12)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank9(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['AC', 'AD', 'JC', 'JC', 'TD'])
+        expected = (2,10,10,10)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
+    def test_poker_check_hand_rank10(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.check_hand_rank(['2C', '2C', '2C', '4C', '4C'])
+        expected = (6,2,4)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
 if __name__ == '__main__':
     unittest.main(exit=False)
 
