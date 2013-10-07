@@ -122,6 +122,8 @@ def full_house(hand):
         s = [n for n,h in hand]
         if three_of_a_kind(hand)and len(set(s))==2:
                 return True
+        else:
+                return False
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
