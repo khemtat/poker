@@ -112,8 +112,10 @@ def four_of_a_kind(hand):
         return True or False
         """
         s = [s1 for s1,s2 in hand]
-        
-        return len(set(s)) == 2
+        for i in xrange(len(s)):
+                if s.count(s[i]) ==4:
+                        return True
+        return False
 
 def straight(hand):
         """
