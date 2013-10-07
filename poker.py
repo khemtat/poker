@@ -43,7 +43,7 @@ def check_hand_rank(hand):
                            tong = s[i]
                         else:
                            kuu = s[i]
-                return 6,tong,kuu
+                return 6,int(tong),int(kuu)
         elif flush(hand):
                 return 5,max(card_rank)
         elif straight(hand):
