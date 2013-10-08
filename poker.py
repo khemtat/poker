@@ -1,34 +1,34 @@
 #-*- coding:UTF-8 -*-
-def main():
+def main(players):
+    """
+    (players) -> number of players in this game
+
+    """
     print '''
    _____                                         
   /  __ \      _                                
-  | /  \ \    | |
-  | |__/ /___ | | _ ___  _ __
+  | /  \ \    | |              
+  | |__/ /___ | | _ ___  _ __ *
   |  ___/  _  | |/ / _ \| '__|
   | |   | (_) |   <  __/| |
   |_|    \___/|_|\_\___||_|                              
-                                                
-                                                  
-                 ______           _           _        _____  _____  __   ___ 
-                 | ___ \         (_)         | |      / __  \|  _  |/  | /   \ 
-                 | |_/ /_ __ ___  _  ___  ___| |_     `' / /'| |/' |`| | \_/| | 
-                 |  __/| '__/ _ \| |/ _ \/ __| __|      / /  |  /| | | |  _ < | 
-                 | |   | | | (_) | |  __/ (__| |_     ./ /___\ |_/ /_| |_/ \| |
-                 \_|   |_|  \___/| |\___|\___|\__|    \_____/ \___/ \___/\___/
+                                                                                     
+             ______           _           _        _____  _____  __   _____ 
+             | ___ \         (_)         | |      / __  \/  _  \/  | /  _  \ 
+             | |_/ /_ __ ___  _  ___  ___| |_     `' / /'| |\| |`| | \_/ \ | 
+             |  __/| '__/ _ \| |/ _ \/ |_  __|      / /  | |/| | | |  _  < | 
+             | |   | | | (_) | |  __/ (__| |_     ./ /___\ |_| /_| |_/ \_/ |
+             \_|   |_|  \___/| |\___|\___|___|    \_____/ \___/ \___/\_____/
                                 _/ |                                          
-                               |__/                                           
-       
+                               |__/ 
+# Presented by : Kittikorn Prasertsak, Khemtat Lengpaiboon and Tanawat Gajaseni
+# Enjoy the Poker game !!                                          
 '''
-    players = input("\n[+] Input number of players: ")
-    return players
-print main()
+    Pcard = []
+    while len(Pcard) <= players:
+        Pcard.append(input("Player "+str(len(Pcard)+1)+" -- input your card: "))
 
-def play_poker(n):
-	card_list = []
-	for i in xrange(n):
-		card_list.append([raw_input("[+] Player "+str(i+1)+" input your card: ")])
-	return card_list
+print main(input("\n[+] Input number of players (1-5): "))
 
 def check_hand_rank(hand):
         """
