@@ -19,14 +19,14 @@ def main(players):
              |  __/| '__/ _ \| |/ _ \/ |_  __|      / /  | |/| | | |  _  < | 
              | |   | | | (_) | |  __/ (__| |_     ./ /___\ |_| /_| |_/ \_/ |
              \_|   |_|  \___/| |\___|\___|___|    \_____/ \___/ \___/\_____/
-                                _/ |                                          
-                               |__/ 
+                             / |                                          
+                            |__/ 
 # Presented by : Kittikorn Prasertsak, Khemtat Lengpaiboon and Tanawat Gajaseni
 # Enjoy the Poker game !!                                          
 '''
     Pcard = []
     while len(Pcard) <= players:
-        Pcard.append(input("Player "+str(len(Pcard)+1)+" -- input your card: "))
+        Pcard.append(raw_input("Player "+str(len(Pcard)+1)+" -- input your card: "))
 
 print main(input("\n[+] Input number of players (1-5): "))
 
