@@ -51,9 +51,12 @@ def check_hand_rank(hand):
         elif three_of_a_kind(hand):
                 return 3,max(card_rank),max(kicker_sort(3,card_rank))
         elif two_pair(hand):
+                max_card_rank = max(card_rank)
                 Max2 = kicker_sort(2,card_rank)
+                Max2_int = max(Max2)
                 kicker = kicker_sort(2,Max2)
-                return 2,max(card_rank),max(Max2),max(kicker)
+                kicker_int = max(kicker)
+                return 2,max_card_rank,Max2_int,kicker_int
         elif one_pair(hand):
                 return 1,max(card_rank),max(kicker_sort(2,card_rank))
         else:
