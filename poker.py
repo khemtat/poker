@@ -54,7 +54,7 @@ def main(players):
             print "Player "+str(i+1)+" Result : Straight flush"
         elif hand_rank[i][0] == 9:
             print "Player "+str(i+1)+" Result : Royal straight flush"
-    print "Winner Player is " + winner(hand_rank)
+    print "Winner Player is " + str(winner(hand_rank))
         
 def check_hand_rank(hand):
         """
@@ -139,7 +139,7 @@ def winner(ls):
     if len(ll) > 1:
         #High Card
         if maxer == 0:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
         #One Pair
         elif maxer == 1:
             pass
@@ -151,26 +151,26 @@ def winner(ls):
             pass
         #Straight
         elif maxer == 4:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
         #Flush
         elif maxer == 5:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
         #Full House
         elif maxer == 6 :
             pass
         #Four of a kind
         elif maxer == 7:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
         #Straight Flush
         elif maxer == 8:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
         #Royal Straight Flush
         elif maxer == 9:
-            return max_in_case(ls,ll)
+            return max_in_case(ls,ll,1)
     else:
         return str(ll[0]+1)
 
-def max_in_case(ls,ll):
+def max_in_case(ls,ll,case):
     """
     max_in_case(ls,ll) -> str
 
@@ -178,40 +178,40 @@ def max_in_case(ls,ll):
     """
     st = ""
     if len(ll) == 2:
-        a = (max(ls[ll[0]][1],ls[ll[1]][1]))
-        if ls[ll[0]][1] == a:
+        a = (max(ls[ll[0]][case],ls[ll[1]][case]))
+        if ls[ll[0]][case] == a:
             st += "1 "
-        if ls[ll[1]][1] == a:
+        if ls[ll[1]][case] == a:
             st += "2 "
     elif len(ll) == 3:
-        a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1]))
-        if ls[ll[0]][1] == a:
+        a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case]))
+        if ls[ll[0]][case] == a:
             st += "1 "
-        if ls[ll[1]][1] == a:
+        if ls[ll[1]][case] == a:
             st += "2 "
-        if ls[ll[2]][1] == a:
+        if ls[ll[2]][case] == a:
             st += "3 "
     elif len(ll) == 4:
-        a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1]))
-        if ls[ll[0]][1] == a:
+        a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case]))
+        if ls[ll[0]][case] == a:
             st += "1 "
-        if ls[ll[1]][1] == a:
+        if ls[ll[1]][case] == a:
             st += "2 "
-        if ls[ll[2]][1] == a:
+        if ls[ll[2]][case] == a:
             st += "3 "
-        if ls[ll[3]][1] == a:
+        if ls[ll[3]][case] == a:
             st += "4 "
     elif len(ll) == 5:
-        a=(max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1],ls[ll[4]][1]))
-        if ls[ll[0]][1] == a:
+        a=(max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case],ls[ll[4]][case]))
+        if ls[ll[0]][case] == a:
             st += "1 "
-        if ls[ll[1]][1] == a:
+        if ls[ll[1]][case] == a:
             st += "2 "
-        if ls[ll[2]][1] == a:
+        if ls[ll[2]][case] == a:
             st += "3 "
-        if ls[ll[3]][1] == a:
+        if ls[ll[3]][case] == a:
             st += "4 "
-        if ls[ll[4]][1] == a:
+        if ls[ll[4]][case] == a:
             st += "5 "
     return st    
 
