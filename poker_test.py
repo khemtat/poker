@@ -210,7 +210,7 @@ class TestPoker(unittest.TestCase):
     def test_poker_check_hand_rank9(self):
         '''Test case for checking "Check_hand_rank" function'''
         actual = poker.check_hand_rank(['AC', 'AD', 'JC', 'JC', 'TD'])
-        expected = (2,10,10,10)
+        expected = (2,14,11,10)
         self.assertEqual(actual, expected)
         self.assertEqual(actual, expected)
     def test_poker_check_hand_rank10(self):
