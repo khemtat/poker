@@ -25,11 +25,37 @@ def main(players):
 # Enjoy the Poker game !!                                          
 '''
     Pcard = []
-    while len(Pcard) <= players:
-        Pcard.append(raw_input("Player "+str(len(Pcard)+1)+" -- input your card: "))
-
-print main(input("\n[+] Input number of players (1-5): "))
-
+    i2 = 0
+    while len(Pcard) < players:
+        P2 = (raw_input("Player "+str(len(Pcard)+1)+" -- input your card: "))
+        Pcard.append(P2.split())
+        i2 += 1
+    hand_rank = []
+    print "==============Result=============="
+    for i in xrange(players):
+        hand_rank.append(check_hand_rank(Pcard[i]))
+        if hand_rank[i][0] == 0:
+            print "Player "+str(i+1)+" Result : High card"
+        elif hand_rank[i][0] == 1:
+            print "Player "+str(i+1)+" Result : One pair"
+        elif hand_rank[i][0] == 2:
+            print "Player "+str(i+1)+" Result : Two pair"
+        elif hand_rank[i][0] == 3:
+            print "Player "+str(i+1)+" Result : Three of a kind"
+        elif hand_rank[i][0] == 4:
+            print "Player "+str(i+1)+" Result : Straight"
+        elif hand_rank[i][0] == 5:
+            print "Player "+str(i+1)+" Result : Flush"
+        elif hand_rank[i][0] == 6:
+            print "Player "+str(i+1)+" Result : Full house"
+        elif hand_rank[i][0] == 7:
+            print "Player "+str(i+1)+" Result : Four of a kind"
+        elif hand_rank[i][0] == 8:
+            print "Player "+str(i+1)+" Result : Straight flush"
+        elif hand_rank[i][0] == 9:
+            print "Player "+str(i+1)+" Result : Royal straight flush"
+    print "Winner Player is " + winner(hand_rank)
+        
 def check_hand_rank(hand):
         """
         (hand) -> list
@@ -87,6 +113,7 @@ def check_hand_rank(hand):
                 return 1,max(card_rank),max(kicker_sort(2,card_rank))
         else:
                 return 0,max(card_rank)
+
 def kicker_sort(a,ls):
         """
         (a,ls) -> list
@@ -235,3 +262,4 @@ def full_house(hand):
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
+print main(input("\n[+] Input number of players (1-5): "))
