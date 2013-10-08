@@ -88,7 +88,7 @@ def royal_straight_flush(hand):
         def royal_straight(hand):
                 s1 = [s1 for s1,s2 in hand]
                 for each in s1:
-                        if each not in ['A','K','Q','J','T']:
+                        if each not in ['A','K','Q','J','T'] or len(set(s1)) != 5:
                                 return False
                 return True
         return royal_straight(hand) and flush(hand)
