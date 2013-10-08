@@ -114,6 +114,101 @@ def check_hand_rank(hand):
         else:
                 return 0,max(card_rank)
 
+def winner(ls):
+    """
+    (ls) -> str
+
+    this function use to check who win
+
+    return Winner Player
+    
+    ls ex:
+    [(0, 14), (1, 8, 8)]
+    """
+    ll = []
+    maxer = 0
+    value = 0
+    for i in xrange(len(ls)):
+        if ls[i][0] > maxer:
+            maxer = ls[i][0]
+            ll = []
+            ll.append(i)
+        elif ls[i][0] == maxer:
+            maxer = ls[i][0]
+            ll.append(i)
+    if len(ll) > 1:
+        #High Card
+        if maxer == 0:
+            st = ""
+            if len(ll) == 2:
+                a = (max(ls[ll[0]][1],ls[ll[1]][1]))
+                if ls[ll[0]][1] == a:
+                    st += "1 "
+                if ls[ll[1]][1] == a:
+                    st += "2 "
+                return st
+            elif len(ll) == 3:
+                a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1]))
+                if ls[ll[0]][1] == a:
+                    st += "1 "
+                if ls[ll[1]][1] == a:
+                    st += "2 "
+                if ls[ll[2]][1] == a:
+                    st += "3 "
+                return st
+            elif len(ll) == 4:
+                a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1]))
+                if ls[ll[0]][1] == a:
+                    st += "1 "
+                if ls[ll[1]][1] == a:
+                    st += "2 "
+                if ls[ll[2]][1] == a:
+                    st += "3 "
+                if ls[ll[3]][1] == a:
+                    st += "4 "
+            elif len(ll) == 5:
+                a=(max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1],ls[ll[4]][1]))
+                if ls[ll[0]][1] == a:
+                    st += "1 "
+                if ls[ll[1]][1] == a:
+                    st += "2 "
+                if ls[ll[2]][1] == a:
+                    st += "3 "
+                if ls[ll[3]][1] == a:
+                    st += "4 "
+                if ls[ll[4]][1] == a:
+                    st += "5 "
+            return st
+        #One Pair
+        elif maxer == 1:
+            pass
+        #Two Pair
+        elif maxer == 2:
+            pass
+        #Three of a kind
+        elif maxer == 3:
+            pass
+        #Straight
+        elif maxer == 4:
+            pass
+        #Flush
+        elif maxer == 5:
+            pass
+        #Full House
+        elif maxer == 6 :
+            pass
+        #Four of a kind
+        elif maxer == 7:
+            pass
+        #Straight Flush
+        elif maxer == 8:
+            pass
+        #Royal Straight Flush
+        elif maxer == 9:
+            pass
+    else:
+        return str(ll[0]+1)
+
 def kicker_sort(a,ls):
         """
         (a,ls) -> list
