@@ -139,46 +139,7 @@ def winner(ls):
     if len(ll) > 1:
         #High Card
         if maxer == 0:
-            st = ""
-            if len(ll) == 2:
-                a = (max(ls[ll[0]][1],ls[ll[1]][1]))
-                if ls[ll[0]][1] == a:
-                    st += "1 "
-                if ls[ll[1]][1] == a:
-                    st += "2 "
-                return st
-            elif len(ll) == 3:
-                a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1]))
-                if ls[ll[0]][1] == a:
-                    st += "1 "
-                if ls[ll[1]][1] == a:
-                    st += "2 "
-                if ls[ll[2]][1] == a:
-                    st += "3 "
-                return st
-            elif len(ll) == 4:
-                a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1]))
-                if ls[ll[0]][1] == a:
-                    st += "1 "
-                if ls[ll[1]][1] == a:
-                    st += "2 "
-                if ls[ll[2]][1] == a:
-                    st += "3 "
-                if ls[ll[3]][1] == a:
-                    st += "4 "
-            elif len(ll) == 5:
-                a=(max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1],ls[ll[4]][1]))
-                if ls[ll[0]][1] == a:
-                    st += "1 "
-                if ls[ll[1]][1] == a:
-                    st += "2 "
-                if ls[ll[2]][1] == a:
-                    st += "3 "
-                if ls[ll[3]][1] == a:
-                    st += "4 "
-                if ls[ll[4]][1] == a:
-                    st += "5 "
-            return st
+            return max_in_case(ls,ll)
         #One Pair
         elif maxer == 1:
             pass
@@ -190,24 +151,69 @@ def winner(ls):
             pass
         #Straight
         elif maxer == 4:
-            pass
+            return max_in_case(ls,ll)
         #Flush
         elif maxer == 5:
-            pass
+            return max_in_case(ls,ll)
         #Full House
         elif maxer == 6 :
             pass
         #Four of a kind
         elif maxer == 7:
-            pass
+            return max_in_case(ls,ll)
         #Straight Flush
         elif maxer == 8:
-            pass
+            return max_in_case(ls,ll)
         #Royal Straight Flush
         elif maxer == 9:
-            pass
+            return max_in_case(ls,ll)
     else:
         return str(ll[0]+1)
+
+def max_in_case(ls,ll):
+    """
+    max_in_case(ls,ll) -> str
+
+    return who have max value of card if can to judge by hand rank
+    """
+    st = ""
+    if len(ll) == 2:
+        a = (max(ls[ll[0]][1],ls[ll[1]][1]))
+        if ls[ll[0]][1] == a:
+            st += "1 "
+        if ls[ll[1]][1] == a:
+            st += "2 "
+    elif len(ll) == 3:
+        a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1]))
+        if ls[ll[0]][1] == a:
+            st += "1 "
+        if ls[ll[1]][1] == a:
+            st += "2 "
+        if ls[ll[2]][1] == a:
+            st += "3 "
+    elif len(ll) == 4:
+        a = (max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1]))
+        if ls[ll[0]][1] == a:
+            st += "1 "
+        if ls[ll[1]][1] == a:
+            st += "2 "
+        if ls[ll[2]][1] == a:
+            st += "3 "
+        if ls[ll[3]][1] == a:
+            st += "4 "
+    elif len(ll) == 5:
+        a=(max(ls[ll[0]][1],ls[ll[1]][1],ls[ll[2]][1],ls[ll[3]][1],ls[ll[4]][1]))
+        if ls[ll[0]][1] == a:
+            st += "1 "
+        if ls[ll[1]][1] == a:
+            st += "2 "
+        if ls[ll[2]][1] == a:
+            st += "3 "
+        if ls[ll[3]][1] == a:
+            st += "4 "
+        if ls[ll[4]][1] == a:
+            st += "5 "
+    return st    
 
 def kicker_sort(a,ls):
         """
