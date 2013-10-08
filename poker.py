@@ -54,6 +54,7 @@ def main(players):
             print "Player "+str(i+1)+" Result : Straight flush"
         elif hand_rank[i][0] == 9:
             print "Player "+str(i+1)+" Result : Royal straight flush"
+    print hand_rank
     print "Winner Player is " + str(winner(hand_rank))
         
 def check_hand_rank(hand):
@@ -103,12 +104,10 @@ def check_hand_rank(hand):
         elif three_of_a_kind(hand):
                 return 3,max(card_rank),max(kicker_sort(3,card_rank))
         elif two_pair(hand):
-                max_card_rank = max(card_rank)
-                Max2 = kicker_sort(2,card_rank)
-                Max2_int = max(Max2)
-                kicker = kicker_sort(2,Max2)
-                kicker_int = max(kicker)
-                return 2,max_card_rank,Max2_int,kicker_int
+            for i in xrange(0,3):
+                if card_rank.count(card_rank[i]) >=2:
+                    card_rank.pop(i)
+            return 2,card_rank[0],card_rank[1],card_rank[2]
         elif one_pair(hand):
                 return 1,max(card_rank),max(kicker_sort(2,card_rank))
         else:
