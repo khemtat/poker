@@ -122,7 +122,15 @@ def check_hand_rank(hand):
             ld.sort(reverse=True)
             return 2,ld[0],ld[1],a
         elif one_pair(hand):
-                return 1,max(card_rank),max(kicker_sort(2,card_rank))
+            ld = 0
+            a = []
+            for i in xrange(len(card_rank)):
+                if card_rank.count(card_rank[i]) > 1 :
+                    ld = (card_rank[i])
+                else:
+                    a.append(card_rank[i])
+            a.sort(reverse = True)
+            return 3,ld,a[0],a[1],a[2]
         else:
                 return 0,max(card_rank)
 
@@ -155,7 +163,26 @@ def winner(ls):
             return max_in_case(ls,ll,1)
         #One Pair
         elif maxer == 1:
-            pass
+            a = max_in_case(ls,ll,1)
+            if len(a) > 2:
+                if a.count("1") == 0 and len(ll) > 1:
+                    ll.pop(0)
+                if a.count("2") == 0 and len(ll) >= 2:
+                    ll.pop(1)
+                if a.count("3") == 0 and len(ll) >= 3:
+                    ll.pop(2)
+                if a.count("4") == 0 and len(ll) >= 4:
+                    ll.pop(3)
+                if a.count("5") == 0 and len(ll) >= 5:
+                    ll.pop(4)
+                b = max_in_case(ls,ll,2,a)
+                if len(b)>2:
+                    c = max_in_case(ls,ll,3,b)
+                    return c
+                else:
+                    return b
+            else:
+                return a
         #Two Pair
         elif maxer == 2:
             a = max_in_case(ls,ll,1)
@@ -173,7 +200,7 @@ def winner(ls):
                 else:
                     return b
             else:
-                return "case a :"+a + str(len(a))
+                return a
         #Three of a kind
         elif maxer == 3:
             a = max_in_case(ls,ll,1)
@@ -195,7 +222,7 @@ def winner(ls):
                 else:
                     return b
             else:
-                return "case a :"+a + str(len(a))
+                return a 
         #Straight
         elif maxer == 4:
             return max_in_case(ls,ll,1)
@@ -223,7 +250,7 @@ def winner(ls):
                 else:
                     return b
             else:
-                return "case a :"+a + str(len(a))
+                return a 
         #Four of a kind
         elif maxer == 7:
             return max_in_case(ls,ll,1)
