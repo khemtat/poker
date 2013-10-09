@@ -219,6 +219,13 @@ class TestPoker(unittest.TestCase):
         expected = (6,2,4)
         self.assertEqual(actual, expected)
         self.assertEqual(actual, expected)
+    #Test case of Winner
+    def test_poker_check_hand_winner(self):
+        '''Test case for checking "Check_hand_rank" function'''
+        actual = poker.winner([(1,8,8),(0,14)])
+        expected = "1"
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual, expected)
 if __name__ == '__main__':
     unittest.main(exit=False)
 
