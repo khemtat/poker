@@ -62,17 +62,20 @@ def how_to_play():
     print '''
     Test !!
     '''
-
-select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n\nInput number : ")
-if select.isdigit() and (select == '1' or select =='2'):
-    if select == '1':
-        print '==============Poker Start=============='
-        print main(input("\n[+] Input number of players (1-5): "))
+while(True):
+    select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n    3.)Exit \n\nInput number : ")
+    if select.isdigit() and (select == '1' or select =='2' or select == '3'):
+        if select == '1':
+            print '==============Poker Start=============='
+            print main(input("\n[+] Input number of players (1-5): "))
+        elif select == '2':
+            print '==============How to Play=============='
+            how_to_play()
+            print '======================================='
+        else:
+            break
     else:
-        print '==============How to Play=============='
-        print how_to_play()
-else:
-    print "please nput number 1 or 2"
+        print "please Input number 1 or 2"
         
 def check_hand_rank(hand):
         """
