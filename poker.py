@@ -18,6 +18,7 @@ print '''
 # Presented by : Kittikorn Prasertsak, Khemtat Lengpaiboon and Tanawat Gajaseni
 # Enjoy the Poker game !!                                          
 '''
+#print main(input("\n[+] Input number of players (1-5): "))
 def main(players):
     """
     (players) -> number of players in this game
@@ -56,6 +57,22 @@ def main(players):
     if len(str(winner(hand_rank)))/2 >= 2:
         return 'Winner are players: ' +str(winner(hand_rank))
     return "The Winner is player: " + str(winner(hand_rank))
+
+def how_to_play():
+    print '''
+    Test !!
+    '''
+
+select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n\nInput number : ")
+if select.isdigit() and (select == '1' or select =='2'):
+    if select == '1':
+        print '==============Poker Start=============='
+        print main(input("\n[+] Input number of players (1-5): "))
+    else:
+        print '==============How to Play=============='
+        print how_to_play()
+else:
+    print "please nput number 1 or 2"
         
 def check_hand_rank(hand):
         """
@@ -496,4 +513,3 @@ def full_house(hand):
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
-print main(input("\n[+] Input number of players (1-5): "))
