@@ -204,7 +204,26 @@ def winner(ls):
             return max_in_case(ls,ll,1)
         #Full House
         elif maxer == 6 :
-            pass
+            a = max_in_case(ls,ll,1)
+            if len(a) > 2:
+                if a.count("1") == 0 and len(ll) > 1:
+                    ll.pop(0)
+                if a.count("2") == 0 and len(ll) >= 2:
+                    ll.pop(1)
+                if a.count("3") == 0 and len(ll) >= 3:
+                    ll.pop(2)
+                if a.count("4") == 0 and len(ll) >= 4:
+                    ll.pop(3)
+                if a.count("5") == 0 and len(ll) >= 5:
+                    ll.pop(4)
+                b = max_in_case(ls,ll,2,a)
+                if len(b)>2:
+                    c = max_in_case(ls,ll,3,b)
+                    return c
+                else:
+                    return b
+            else:
+                return "case a :"+a + str(len(a))
         #Four of a kind
         elif maxer == 7:
             return max_in_case(ls,ll,1)
