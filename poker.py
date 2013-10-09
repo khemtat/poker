@@ -59,20 +59,30 @@ def main(players):
     return "The Winner is player: " + str(winner(hand_rank))
 
 def how_to_play():
-    print '''
-    Test !!
-    '''
+    return '''
+    --- Example the screen in game ---
 
-select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n\nInput number : ")
-if select.isdigit() and (select == '1' or select =='2'):
-    if select == '1':
-        print '==============Poker Start=============='
-        print main(input("\n[+] Input number of players (1-5): "))
-    else:
-        print '==============How to Play=============='
-        print how_to_play()
-else:
-    print "please nput number 1 or 2"
+    ==============Poker Start==============c
+    [+] Input number of players (1-5): 2 *
+    Player 1 -- input your card: TD JD QD KD AD *
+    Player 2 -- input your card: 8H 8H 8H 4S 4S *
+    ==============Result==============
+    Player 1 have: Royal straight flush
+    Player 2 have: Full house
+    The Winner is player: 1
+
+    --- How ? ---
+    *Your input
+
+    1.) You have to input number of players.
+    2.) Input your card (str type) 
+        -- Example : 2H 4S 5H 6D TD
+            describe the hand of '2H'
+                '2' is card rank and 'H' means 'Heart' (poker symbol)
+                <- The order of the poker symbols ->  
+                "S"pades, "H"earts, "D"iamonds, "C"lubs.
+    3.) Let's see who is win this game !!
+    '''
         
 def check_hand_rank(hand):
         """
@@ -510,6 +520,17 @@ def full_house(hand):
                 return True
         else:
                 return False
+select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n\nInput number : ")
+if select.isdigit() and (select == '1' or select =='2'):
+    if select == '1':
+        print '==============Poker Start=============='
+        print main(input("\n[+] Input number of players (1-5): "))
+    else:
+        print '==============How to Play=============='
+        print how_to_play()
+else:
+    print "please input number 1 or 2"
+
 if __name__ == '__main__':
 	import doctest
 	doctest.testmod()
