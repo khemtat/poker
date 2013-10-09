@@ -59,7 +59,7 @@ def main(players):
     return "The Winner is player: " + str(winner(hand_rank))
 
 def how_to_play():
-    return '''
+    print '''
     --- Example the screen in game ---
 
     ==============Poker Start==============c
@@ -83,6 +83,12 @@ def how_to_play():
                 "S"pades, "H"earts, "D"iamonds, "C"lubs.
     3.) Let's see who is win this game !!
     '''
+    playMode = raw_input('Do you want to play game ? (Y/N): ').upper()
+    if playMode == 'Y':
+        print '==============Poker Start=============='
+        return main(input("\n[+] Input number of players (1-5): "))
+    else:
+        exit()
         
 def check_hand_rank(hand):
         """
@@ -529,12 +535,12 @@ while(True):
             print main(input("\n[+] Input number of players (1-5): "))
         elif select == '2':
             print '==============How to Play=============='
-            how_to_play()
+            print how_to_play()
             print '======================================='
         else:
             break
     else:
-        print "please Input number 1 or 2"
+        print "****** please Input number 1-3 !! ******"
 
 if __name__ == '__main__':
 	import doctest
