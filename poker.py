@@ -1,29 +1,28 @@
 #-*- coding:UTF-8 -*-
+print '''
+   _____                                         
+  /  __ \      _                                
+  | /  \ \    | |              
+  | |__/ /___ | | _ ___  _ __ *
+  |  ___// _ \| |/ / _ \| '__|
+  | |   | (_) |   <  __/| |
+  |_|    \___/|_|\_\___||_|                                                                                                            
+            ______           _           _        _____  _____  __   _____ 
+            | ___ \         (_)         | |      / __  \/  _  \/  | /  _  \ 
+            | |_/ /_ __ ___  _  ___  ___| |_     `' / /'| |\| |`| | \_/ \ | 
+            |  __/| '__/ _ \| |/ _ \/ |_  __|      / /  | |/| | | |  _ -< | 
+            | |   | | | (_) | |  __/ (__| |_     ./ /___\ |_| /_| |_/ \_/ |
+            \_|   |_|  \___/| |\___|\___|___|    \_____/ \___/ \___/\_____/
+                            / |                                          
+                           |_/
+# Presented by : Kittikorn Prasertsak, Khemtat Lengpaiboon and Tanawat Gajaseni
+# Enjoy the Poker game !!                                          
+'''
 def main(players):
     """
     (players) -> number of players in this game
 
     """
-    print '''
-   _____                                         
-  /  __ \      _                                
-  | /  \ \    | |              
-  | |__/ /___ | | _ ___  _ __ *
-  |  ___/  _  | |/ / _ \| '__|
-  | |   | (_) |   <  __/| |
-  |_|    \___/|_|\_\___||_|                              
-                                                                                     
-             ______           _           _        _____  _____  __   _____ 
-             | ___ \         (_)         | |      / __  \/  _  \/  | /  _  \ 
-             | |_/ /_ __ ___  _  ___  ___| |_     `' / /'| |\| |`| | \_/ \ | 
-             |  __/| '__/ _ \| |/ _ \/ |_  __|      / /  | |/| | | |  _  < | 
-             | |   | | | (_) | |  __/ (__| |_     ./ /___\ |_| /_| |_/ \_/ |
-             \_|   |_|  \___/| |\___|\___|___|    \_____/ \___/ \___/\_____/
-                             / |                                          
-                            |__/ 
-# Presented by : Kittikorn Prasertsak, Khemtat Lengpaiboon and Tanawat Gajaseni
-# Enjoy the Poker game !!                                          
-'''
     Pcard = []
     i2 = 0
     while len(Pcard) < players:
@@ -35,27 +34,28 @@ def main(players):
     for i in xrange(players):
         hand_rank.append(check_hand_rank(Pcard[i]))
         if hand_rank[i][0] == 0:
-            print "Player "+str(i+1)+" Result : High card"
+            print "Player "+str(i+1)+" have: High card"
         elif hand_rank[i][0] == 1:
-            print "Player "+str(i+1)+" Result : One pair"
+            print "Player "+str(i+1)+" have: One pair"
         elif hand_rank[i][0] == 2:
-            print "Player "+str(i+1)+" Result : Two pair"
+            print "Player "+str(i+1)+" have: Two pair"
         elif hand_rank[i][0] == 3:
-            print "Player "+str(i+1)+" Result : Three of a kind"
+            print "Player "+str(i+1)+" have: Three of a kind"
         elif hand_rank[i][0] == 4:
-            print "Player "+str(i+1)+" Result : Straight"
+            print "Player "+str(i+1)+" have: Straight"
         elif hand_rank[i][0] == 5:
-            print "Player "+str(i+1)+" Result : Flush"
+            print "Player "+str(i+1)+" have: Flush"
         elif hand_rank[i][0] == 6:
-            print "Player "+str(i+1)+" Result : Full house"
+            print "Player "+str(i+1)+" have: Full house"
         elif hand_rank[i][0] == 7:
-            print "Player "+str(i+1)+" Result : Four of a kind"
+            print "Player "+str(i+1)+" have: Four of a kind"
         elif hand_rank[i][0] == 8:
-            print "Player "+str(i+1)+" Result : Straight flush"
+            print "Player "+str(i+1)+" have: Straight flush"
         elif hand_rank[i][0] == 9:
-            print "Player "+str(i+1)+" Result : Royal straight flush"
-    print hand_rank
-    print "Winner Player is " + str(winner(hand_rank))
+            print "Player "+str(i+1)+" have: Royal straight flush"
+    if len(str(winner(hand_rank)))/2 >= 2:
+        return 'Winner are players: ' +str(winner(hand_rank))
+    return "The Winner is player: " + str(winner(hand_rank))
         
 def check_hand_rank(hand):
         """
