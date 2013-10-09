@@ -83,6 +83,23 @@ def how_to_play():
                 "S"pades, "H"earts, "D"iamonds, "C"lubs.
     3.) Let's see who is win this game !!
     '''
+<<<<<<< HEAD
+=======
+while(True):
+    select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n    3.)Exit \n\nInput number : ")
+    if select.isdigit() and (select == '1' or select =='2' or select == '3'):
+        if select == '1':
+            print '==============Poker Start=============='
+            print main(input("\n[+] Input number of players (1-5): "))
+        elif select == '2':
+            print '==============How to Play=============='
+            how_to_play()
+            print '======================================='
+        else:
+            break
+    else:
+        print "please Input number 1 or 2"
+>>>>>>> ec669345c3544eb1cb0d5d258dcabc25ebfac3ee
         
 def check_hand_rank(hand):
         """
@@ -157,7 +174,7 @@ def check_hand_rank(hand):
                 else:
                     a.append(card_rank[i])
             a.sort(reverse = True)
-            return 3,ld,a[0],a[1],a[2]
+            return 1,ld,a[0],a[1],a[2]
         else:
                 return 0,max(card_rank)
 
@@ -520,16 +537,21 @@ def full_house(hand):
                 return True
         else:
                 return False
-select = raw_input("[+] Select Mode [+]\n    1.)Start Game\n    2.)How to Play\n\nInput number : ")
-if select.isdigit() and (select == '1' or select =='2'):
-    if select == '1':
-        print '==============Poker Start=============='
-        print main(input("\n[+] Input number of players (1-5): "))
+                
+while(True):
+    select = raw_input("[+] Select Mode [+]\n 1.)Start Game\n 2.)How to Play\n 3.)Exit \n\nInput number : ")
+    if select.isdigit() and (select == '1' or select =='2' or select == '3'):
+        if select == '1':
+            print '==============Poker Start=============='
+            print main(input("\n[+] Input number of players (1-5): "))
+        elif select == '2':
+            print '==============How to Play=============='
+            how_to_play()
+            print '======================================='
+        else:
+            break
     else:
-        print '==============How to Play=============='
-        print how_to_play()
-else:
-    print "please input number 1 or 2"
+        print "please Input number 1 or 2"
 
 if __name__ == '__main__':
 	import doctest
