@@ -147,7 +147,7 @@ def check_hand_rank(hand):
                 else:
                     a.append(card_rank[i])
             a.sort(reverse = True)
-            return 3,ld,a[0],a[1],a[2]
+            return 1,ld,a[0],a[1],a[2]
         else:
                 return 0,max(card_rank)
 
