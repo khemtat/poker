@@ -104,10 +104,16 @@ def check_hand_rank(hand):
         elif three_of_a_kind(hand):
                 return 3,max(card_rank),max(kicker_sort(3,card_rank))
         elif two_pair(hand):
+            ld = []
+            a = 0
             for i in xrange(0,3):
                 if card_rank.count(card_rank[i]) >=2:
+                    ld.append(card_rank[i])
                     card_rank.pop(i)
-            return 2,card_rank[0],card_rank[1],card_rank[2]
+                else:
+                    a = card_rank[i]
+            ld.sort(reverse=True)
+            return 2,ld[0],ld[1],a
         elif one_pair(hand):
                 return 1,max(card_rank),max(kicker_sort(2,card_rank))
         else:
@@ -144,7 +150,22 @@ def winner(ls):
             pass
         #Two Pair
         elif maxer == 2:
-            pass
+            a = max_in_case(ls,ll,1)
+            if len(a) > 2:
+                if a.count("1") == 0:
+                    ll.pop(0)
+                if a.count("2") == 0:
+                    ll.pop(1)
+                if a.count("3") == 0:
+                    ll.pop(2)
+                b = max_in_case(ls,ll,2,a)
+                if len(b)>2:
+                    c = max_in_case(ls,ll,3,b)
+                    return c
+                else:
+                    return b
+            else:
+                return "case a :"+a + str(len(a))
         #Three of a kind
         elif maxer == 3:
             pass
@@ -169,51 +190,91 @@ def winner(ls):
     else:
         return str(ll[0]+1)
 
-def max_in_case(ls,ll,case):
+def max_in_case(ls,ll,case,old_st = ""):
     """
-    max_in_case(ls,ll) -> str
+    max_in_case(ls,ll,case) -> str
 
     return who have max value of card if can to judge by hand rank
     """
     st = ""
-    if len(ll) == 2:
-        a = (max(ls[ll[0]][case],ls[ll[1]][case]))
-        if ls[ll[0]][case] == a:
-            st += "1 "
-        if ls[ll[1]][case] == a:
-            st += "2 "
-    elif len(ll) == 3:
-        a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case]))
-        if ls[ll[0]][case] == a:
-            st += "1 "
-        if ls[ll[1]][case] == a:
-            st += "2 "
-        if ls[ll[2]][case] == a:
-            st += "3 "
-    elif len(ll) == 4:
-        a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case]))
-        if ls[ll[0]][case] == a:
-            st += "1 "
-        if ls[ll[1]][case] == a:
-            st += "2 "
-        if ls[ll[2]][case] == a:
-            st += "3 "
-        if ls[ll[3]][case] == a:
-            st += "4 "
-    elif len(ll) == 5:
-        a=(max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case],ls[ll[4]][case]))
-        if ls[ll[0]][case] == a:
-            st += "1 "
-        if ls[ll[1]][case] == a:
-            st += "2 "
-        if ls[ll[2]][case] == a:
-            st += "3 "
-        if ls[ll[3]][case] == a:
-            st += "4 "
-        if ls[ll[4]][case] == a:
-            st += "5 "
-    return st    
-
+    if old_st == "":
+        if len(ll) == 2:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case]))
+            if ls[ll[0]][case] == a:
+                st += "1 "
+            if ls[ll[1]][case] == a:
+                st += "2 "
+        elif len(ll) == 3:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case]))
+            if ls[ll[0]][case] == a:
+                st += "1 "
+            if ls[ll[1]][case] == a:
+                st += "2 "
+            if ls[ll[2]][case] == a:
+                st += "3 "
+        elif len(ll) == 4:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case]))
+            if ls[ll[0]][case] == a:
+                st += "1 "
+            if ls[ll[1]][case] == a:
+                st += "2 "
+            if ls[ll[2]][case] == a:
+                st += "3 "
+            if ls[ll[3]][case] == a:
+                st += "4 "
+        elif len(ll) == 5:
+            a=(max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case],ls[ll[4]][case]))
+            if ls[ll[0]][case] == a:
+                st += "1 "
+            if ls[ll[1]][case] == a:
+                st += "2 "
+            if ls[ll[2]][case] == a:
+                st += "3 "
+            if ls[ll[3]][case] == a:
+                st += "4 "
+            if ls[ll[4]][case] == a:
+                st += "5 "
+        return st    
+    else :
+        if len(ll) == 2:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case]))
+            if ls[ll[0]][case] == a and old_st.count(str(ll[0]+1)) != 0:
+                st += str(ll[0]+1)+" "
+            if ls[ll[1]][case] == a and old_st.count(str(ll[1]+1)) != 0:
+                st += str(ll[1]+1)+" "
+        elif len(ll) == 3:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case]))
+            if ls[ll[0]][case] == a and old_st.count(str(ll[0]+1)) != 0:
+                st += str(ll[0]+1)+" "
+            if ls[ll[1]][case] == a and old_st.count(str(ll[1]+1)) != 0:
+                st += str(ll[1]+1)+" "
+            if ls[ll[2]][case] == a and old_st.count(str(ll[2]+1)) != 0:
+                st += str(ll[2]+1)+" "
+        elif len(ll) == 4:
+            a = (max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case]))
+            if ls[ll[0]][case] == a and old_st.count(str(ll[0]+1)) != 0:
+                st += str(ll[0]+1)+" "
+            if ls[ll[1]][case] == a and old_st.count(str(ll[1]+1)) != 0:
+                st += str(ll[1]+1)+" "
+            if ls[ll[2]][case] == a and old_st.count(str(ll[2]+1)) != 0:
+                st += str(ll[2]+1)+" "
+            if ls[ll[3]][case] == a and old_st.count(str(ll[3]+1)) != 0:
+                st += str(ll[3]+1)+" "
+        elif len(ll) == 5:
+            a=(max(ls[ll[0]][case],ls[ll[1]][case],ls[ll[2]][case],ls[ll[3]][case],ls[ll[4]][case]))
+            if ls[ll[0]][case] == a and old_st.count(str(ll[0]+1)) != 0:
+                st += str(ll[0]+1)+" "
+            if ls[ll[1]][case] == a and old_st.count(str(ll[1]+1)) != 0:
+                st += str(ll[1]+1)+" "
+            if ls[ll[2]][case] == a and old_st.count(str(ll[2]+1)) != 0:
+                st += str(ll[2]+1)+" "
+            if ls[ll[3]][case] == a and old_st.count(str(ll[3]+1)) != 0:
+                st += str(ll[3]+1)+" "
+            if ls[ll[4]][case] == a and old_st.count(str(ll[4]+1)) != 0:
+                st += str(ll[4]+1)+" "
+        return st    
+        
+        
 def kicker_sort(a,ls):
         """
         (a,ls) -> list
