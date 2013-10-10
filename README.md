@@ -1,12 +1,10 @@
-Poker game (IT KMITL Project 2013)
-Author
-================
-	- Kittikorn Prasertsak		(56070006)
-	- Khemtat Lengpaiboon		(56070009)
-	- Tanawat Gajaseni				(56070057)
+## Poker game (IT KMITL Project 2013)
+### Authur
+- Kittikorn Prasertsak	(56070006)
+- Khemtat Lengpaiboon	(56070009)
+- Tanawat Gajaseni	(56070057)
 
-How to Play
-================
+### How to Play
 		--- Example the screen in game ---
 
     	==============Poker Start==============c
@@ -18,14 +16,16 @@ How to Play
     	Player 2 have: Full house
     	The Winner is player: 1
 
-    	--- How ? ---
-    	*Your input
+*Your input
 
-    	1.) You have to input number of players.
-    	2.) Input your card (str type) 
-        	-- Example : 2H 4S 5H 6D TD
-            	describe the hand of '2H'
-                '2' is card rank and 'H' means 'Heart' (poker symbol)
-                <- The order of the poker symbols ->  
-                "S"pades, "H"earts, "D"iamonds, "C"lubs.
-    	3.) Let's see who is win this game !!
+1. You have to input number of players.
+2. Input your card (str type)
+ 
+ 	Example : 2H 4S 5C 6D 7D
+		Let's describe our card(s). so, in that case, we will used '2H'
+		<br>'2' is card rank and 'H' mean 'Heart' (poker symbol)
+	
+	[+] The order of poker symbols:
+		<br>"S"pades, "H"earts, "D"iamonds, "C"lubs.
+
+3. Let's see who is win this game !
