@@ -189,7 +189,6 @@ def winner(ls):
         elif ls[i][0] == maxer:
             maxer = ls[i][0]
             ll.append(i)
-    print ll
     if len(ll) > 1:
         #High Card
         if maxer == 0:
