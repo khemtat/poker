@@ -112,10 +112,14 @@ def check_hand_rank(hand):
         card_rank = ['--23456789TJQKA'.index(n) for n,h in hand]
         card_rank.sort()
         card_rank.reverse()
+        #for royal straight flush
+        card_rank_rsf = ['HDSC'.index(h) for n,h in hand]
+        card_rank_rsf.sort()
+        card_rank_rsf.reverse()
         if card_rank == [14,5,4,3,2]:
                 card_rank = [5,4,3,2,1]
         if royal_straight_flush(hand):
-                return 9,max(card_rank)
+                return 9,card_rank_rsf[0]
         elif straight_flush(hand):
                 return 8,max(card_rank)
         elif four_of_a_kind(hand):
