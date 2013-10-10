@@ -55,8 +55,8 @@ def main(players):
         elif hand_rank[i][0] == 9:
             print "Player "+str(i+1)+" have: Royal straight flush"
     if len(str(winner(hand_rank)))/2 >= 2:
-        return 'Winner are players: ' +str(winner(hand_rank))
-    return "The Winner is player: " + str(winner(hand_rank))
+        return  "-- >" + 'Winner are players: ' +str(winner(hand_rank)) + " < --"
+    return "-- > The Winner is player: " + str(winner(hand_rank))+ " < --"
 
 def how_to_play():
     print '''
